@@ -43,9 +43,9 @@ function App() {
     document.getElementById('input').value = ''
     } 
   return (
-    <>
+    <div className='card'>
       <input id='input' placeholder='aaaaa' onChange={(e) => {setTodo(e.target.value)}}/>
-      <button onClick={()=>updateList(todo)}>asdad</button>
+      <button className='btn' onClick={()=>updateList(todo)}>asdad</button>
       
       <ul className='list'>
         {todolist.map((item, index) => (
@@ -54,26 +54,27 @@ function App() {
             ? 
             <>
               <input 
+                className='itemEdit'
                 value={editedItem}
                 onChange={(e)=> setEditedItem(e.target.value)}
                 />
-              <button onClick={cancelEdit}>Cancel</button>
-              <button onClick={editItem}>Confirm</button>
+              <button className='btn' onClick={cancelEdit}>Cancel</button>
+              <button className='btn' onClick={editItem}>Confirm</button>
             </>
             : 
               <>
               <span className='item'>{item}</span>
-              <button onClick={()=>deleteItem(index)} className='deleteButton'>
+              <button onClick={()=>deleteItem(index)} className='deleteButton btn'>
               X
               </button>
-              <button onClick={()=>startEdit(index)}>EDIT</button>
+              <button className='btn' onClick={()=>startEdit(index)}>EDIT</button>
               </>
             }
           </li>
         ))}
       </ul>
 
-    </>
+    </div>
   )
 }
 
