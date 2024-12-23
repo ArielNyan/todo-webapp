@@ -21,8 +21,17 @@ function App() {
     setEditedItem('')
   }
 
-  const editItem = (index: number) => {
-    
+  const editItem = () => {
+    if(editedItem===''){
+    setCanEdit(null)
+    setEditedItem('')
+    return
+    }
+    setTodoList((current) => 
+      current.map((item, index)=> index===canEdit ? editedItem : item)
+    )
+    setCanEdit(null)
+    setEditedItem('')
   }
 
   const updateList = (t: string) => {
@@ -49,7 +58,7 @@ function App() {
                 onChange={(e)=> setEditedItem(e.target.value)}
                 />
               <button onClick={cancelEdit}>Cancel</button>
-              <button>Confirm</button>
+              <button onClick={editItem}>Confirm</button>
             </>
             : 
               <>
