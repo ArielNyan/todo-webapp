@@ -42,10 +42,13 @@ function App() {
     setTodo('')
     document.getElementById('input').value = ''
     } 
+
+
+
   return (
     <div className='card'>
-      <input id='input' placeholder='aaaaa' onChange={(e) => {setTodo(e.target.value)}}/>
-      <button className='btn' onClick={()=>updateList(todo)}>asdad</button>
+      <input id='input' placeholder='Insert Todo' onChange={(e) => {setTodo(e.target.value)}}/>
+      <button className='btn' onClick={()=>updateList(todo)}>Add Todo</button>
       
       <ul className='list'>
         {todolist.map((item, index) => (
